@@ -1,0 +1,14 @@
+{% include 'header.html' %}
+{% include 'navigation.html' %}
+
+<div class="inner cover">
+    <h1 class="cover-heading">Escape room ranking.</h1>
+    <p class="lead">Rozwiązuj zagadki, uciekaj z pokoi, rejestruj swój czas i pnij sie po rankingu najlepszych
+        uciekimierów w histori.</p>
+    <p class="lead">
+        <a href="{{ url_for('score_view.add_score') }}" class="btn btn-lg btn-secondary">Dodaj swój wynik</a>
+    </p>
+</div>
+
+
+{% include 'footer.html' %}

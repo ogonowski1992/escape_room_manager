@@ -1,0 +1,13 @@
+<div class="masthead clearfix">
+    <div class="inner">
+        <h3 class="masthead-brand">Escape room ranking</h3>
+        <nav class="nav nav-masthead">
+            <a class="nav-link active" href="#">Dom</a>
+            <a class="nav-link" href="#">Pokoje</a>
+            <a class="nav-link" href="#">Ranking</a>
+            {% if is_logged %}
+            <a class="nav-link" href="{{ url_for('user_view.logout') }}">Wyloguj</a>
+            {% endif %}
+        </nav>
+    </div>
+</div>
