@@ -5,6 +5,8 @@ Wymagane na pewno
 * SQLAlchemy
 * Flask-Cors
 * Flask-login
+* Flask-WTF         pip install -U Flask-WTF
+* flask-bootstrap 
 
 Tych nie jestem pewien czy sa wymagane
 * mysql-connector

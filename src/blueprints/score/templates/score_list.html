@@ -1,0 +1,46 @@
+{% include 'header.html' %}
+{% include 'navigation.html' %}
+<div class="container">
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">Nazwa</th>
+            <th scope="col">Miasto</th>
+            <th scope="col">Ulica</th>
+            <th scope="col">Numer</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for score in ranking %}
+        <tr>
+            <th scope="row">{{score.room_name}}</th>
+            <td>{{score.escape_time}}</td>
+            <td>{{score.name}}</td>
+            <td>{{score.surname}}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+
+{% include 'footer.html' %}
+
+<script>
+    function onLoad() {
+        const current = 'navBarRankId';
+        const navItems = [];
+        navItems.push(document.getElementById('navBarHomeId'));
+        navItems.push(document.getElementById('navBarRoomsId'));
+        navItems.push(document.getElementById('navBarRankId'));
+
+        for (let i = 0; i < navItems.length; i++) {
+            if (navItems[i].id === current) {
+                navItems[i].classList.add("active");
+            } else {
+                navItems[i].classList.remove("active");
+            }
+        }
+    }
+    onLoad();
+</script>

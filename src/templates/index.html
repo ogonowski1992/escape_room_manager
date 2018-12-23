@@ -10,5 +10,24 @@
     </p>
 </div>
 
+<script>
+    function onLoad() {
+        const current = 'navBarHomeId';
+        const navItems = [];
+        navItems.push(document.getElementById('navBarHomeId'));
+        navItems.push(document.getElementById('navBarRoomsId'));
+        navItems.push(document.getElementById('navBarRankId'));
+
+        for (let i = 0; i < navItems.length; i++) {
+            if (navItems[i].id === current) {
+                navItems[i].classList.add("active");
+            } else {
+                navItems[i].classList.remove("active");
+            }
+        }
+    }
+    onLoad();
+</script>
+
 
 {% include 'footer.html' %}

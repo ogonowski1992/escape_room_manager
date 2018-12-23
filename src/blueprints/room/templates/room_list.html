@@ -1,16 +1,32 @@
-{% import "bootstrap/wtf.html" as wtf %}
 {% include 'header.html' %}
 {% include 'navigation.html' %}
-dodaj wynik
- <form method="POST" action="{{ url_for('score_view.add_score') }}">
-        {{ wtf.quick_form(form, button_map={'submit':'primary'}) }}
-    </form>
-
+<div class="container">
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">Nazwa</th>
+            <th scope="col">Miasto</th>
+            <th scope="col">Ulica</th>
+            <th scope="col">Numer</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for room in rooms %}
+        <tr>
+            <th scope="row">{{room.name}}</th>
+            <td>{{room.city}}</td>
+            <td>{{room.street}}</td>
+            <td>{{room.number}}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
 {% include 'footer.html' %}
 
 <script>
     function onLoad() {
-        const current = 'none';
+        const current = 'navBarRoomsId';
         const navItems = [];
         navItems.push(document.getElementById('navBarHomeId'));
         navItems.push(document.getElementById('navBarRoomsId'));
@@ -24,5 +40,6 @@ dodaj wynik
             }
         }
     }
+
     onLoad();
 </script>

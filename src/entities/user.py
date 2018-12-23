@@ -8,7 +8,7 @@ class User(UserMixin, Base):
     __tablename__ = 'users'
     id = Column(Integer, primary_key=True)
     username = Column(String(50), unique=True)
-    password = Column(String(120))
+    password = Column(String(512))
     name = Column(String(120))
     surname = Column(String(120))
 

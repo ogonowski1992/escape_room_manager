@@ -1,6 +1,7 @@
 # coding=utf-8
 
 from flask import Flask
+from flask_bootstrap import Bootstrap
 from flask_cors import CORS
 from flask_login import LoginManager
 
@@ -8,11 +9,13 @@ from src.blueprints.room import room_view
 from src.blueprints.score import score_view
 from src.blueprints.user import user_view
 from src.database import init_db, db_session
+from src.entities.room import Room
 from src.entities.user import User
 
 app = Flask(__name__)
 login = LoginManager(app)
 login.login_view = 'user_view.login'
+bootstrap = Bootstrap(app)
 # dodac @login_required nad elementami wymagajacymi autoryzacji
 # https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-v-user-logins       Introduction to Flask-Login
 
@@ -27,7 +30,8 @@ init_db()
 
 #
 # u = User('ala', '123', 'Ala', 'alowksa')
-# db_session.add(u)
+# r = Room('ala', '123', 'Ala', 'alowksa')
+# db_session.add(r)
 # db_session.commit()
 
 

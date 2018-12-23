@@ -8,8 +8,8 @@ from src.database import Base
 class VisitedRooms(Base):
     __tablename__ = 'visited_rooms'
     id = Column(Integer, primary_key=True)
-    room_id = Column(Integer, ForeignKey('room.id'))
-    user_id = Column(Integer, ForeignKey('user.id'))
+    room_id = Column(Integer, ForeignKey('rooms.id'))
+    user_id = Column(Integer, ForeignKey('users.id'))
     date = Column(DateTime, default=datetime.datetime.utcnow)
     escape_time = Column(Integer)
 
