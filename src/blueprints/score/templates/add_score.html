@@ -1,7 +1,6 @@
 {% import "bootstrap/wtf.html" as wtf %}
 {% include 'header.html' %}
 {% include 'navigation.html' %}
-dodaj wynik
  <form method="POST" action="{{ url_for('score_view.add_score') }}">
         {{ wtf.quick_form(form, button_map={'submit':'primary'}) }}
     </form>
