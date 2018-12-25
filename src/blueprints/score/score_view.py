@@ -42,5 +42,7 @@ def score_list():
     #                                                                                       friendId).filter(
     #     users.id == friendships.friend_id).filter(friendships.user_id == userID).paginate(page, 1, False)
     ranking = VisitedRooms.query.join(Room).join(User).add_columns(Room.room_name, VisitedRooms.escape_time, User.name,
-                                                             User.surname).all()
+                                                                   User.surname).order_by(VisitedRooms.room_id.desc(),
+                                                                                          VisitedRooms.escape_time.asc()).all()
+
     return render_template('score_list.html', is_logged=current_user.is_authenticated, ranking=ranking)
