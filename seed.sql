@@ -1,3 +1,5 @@
+CREATE DATABASE `online-exam`;
+
 CREATE TABLE `rooms` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `room_name` varchar(120) DEFAULT NULL,
