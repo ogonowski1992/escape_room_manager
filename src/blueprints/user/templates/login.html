@@ -1,31 +1,8 @@
 {% import "bootstrap/wtf.html" as wtf %}
 {% include 'header.html' %}
-<!--<div class="container">-->
-    <!--<form action="{{ url_for('user_view.login') }}" method="POST">-->
-        <!--{{ csrf_token }}-->
-        <!--<div class="form-group row">-->
-            <!--<label for="username" class="col-4 col-form-label">Nazwa uzytkownika</label>-->
-            <!--<div class="col-8">-->
-                <!--<input type="text" class="form-control" id="username" name="username" placeholder="nazwa użytkownika">-->
-            <!--</div>-->
-        <!--</div>-->
-        <!--<div class="form-group row">-->
-            <!--<label for="password" class="col-4 col-form-label">Haslo</label>-->
-            <!--<div class="col-8">-->
-                <!--<input type="password" class="form-control" id="password" placeholder="Hasło" name="password">-->
-            <!--</div>-->
-        <!--</div>-->
-        <!--<div class="form-group row">-->
-            <!--<div class="col-sm-6">-->
-                <!--<a class="pull-right btn btn-link" href="{{ url_for('user_view.registration') }}">Zarejestruj</a>-->
-            <!--</div>-->
-            <!--<div class="col-sm-6 pull-right">-->
-                <!--<button type="submit" class="btn btn-primary">Zaloguj</button>-->
-            <!--</div>-->
-        <!--</div>-->
-    <!--</form>-->
-<!--</div>-->
 <div class="container">
+    <h3>Logowanie</h3>
+    <br/>
     <form method="POST" action="{{ url_for('user_view.login') }}">
         {{ wtf.quick_form(form, button_map={'submit':'primary'}) }}
     </form>
