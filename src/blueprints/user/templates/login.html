@@ -1,5 +1,6 @@
 {% import "bootstrap/wtf.html" as wtf %}
 {% include 'header.html' %}
+{% include 'navigation.html' %}
 <div class="container">
     <h3>Logowanie</h3>
     <br/>
@@ -14,3 +15,16 @@
     </div>
 </div>
 {% include 'footer.html' %}
+<script>
+    function onLoad() {
+        const navItems = [];
+        navItems.push(document.getElementById('navBarHomeId'));
+        navItems.push(document.getElementById('navBarRoomsId'));
+        navItems.push(document.getElementById('navBarRankId'));
+
+        for (let i = 0; i < navItems.length; i++) {
+                navItems[i].classList.remove("active");
+        }
+    }
+    onLoad();
+</script>

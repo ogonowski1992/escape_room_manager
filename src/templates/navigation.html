@@ -15,6 +15,9 @@
                 <a class="nav-link" id="userId" href=""><i class="fa fa-user"></i> {{ username }} </a>
                 <a class="nav-link" href="{{ url_for('user_view.logout') }}"><i class="fa fa-power-off"></i> Wyloguj</a>
             {% endif %}
+            {% if is_logged == false %}
+                <a class="nav-link" href="{{ url_for('user_view.login') }}"><i class="fa fa-sign-in-alt"></i> Zaloguj</a>
+            {% endif %}
         </form>
     </div>
 </nav>

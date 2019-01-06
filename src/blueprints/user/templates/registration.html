@@ -1,7 +1,8 @@
 {% import "bootstrap/wtf.html" as wtf %}
 {% include 'header.html' %}
+{% include 'navigation.html' %}
 <div class="container">
-    <h3>Rejestracja</h3>
+    <h4>Rejestracja</h4>
     <form method="POST" action="{{ url_for('user_view.registration') }}">
         {{ wtf.quick_form(form, button_map={'submit':'primary'}) }}
     </form>
@@ -13,3 +14,17 @@
     </div>
 </div>
 {% include 'footer.html' %}
+
+<script>
+    function onLoad() {
+        const navItems = [];
+        navItems.push(document.getElementById('navBarHomeId'));
+        navItems.push(document.getElementById('navBarRoomsId'));
+        navItems.push(document.getElementById('navBarRankId'));
+
+        for (let i = 0; i < navItems.length; i++) {
+                navItems[i].classList.remove("active");
+        }
+    }
+    onLoad();
+</script>
