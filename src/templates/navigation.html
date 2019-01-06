@@ -1,5 +1,5 @@
 <nav class="navbar  fixed-top navbar-expand navbar-dark bg-dark">
-    <a class="navbar-brand">Ranking Escape Room</a>
+    <a class="navbar-brand" id="navBarHomeId" href="{{ url_for('user_view.index') }}"><i class="fa fa-home"></i></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample02"
             aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -9,10 +9,12 @@
         <ul class="navbar-nav mr-auto">
         </ul>
         <form class="form-inline my-2 my-md-0 nav-masthead">
-
-            <a class="nav-link active" id="navBarHomeId" href="{{ url_for('user_view.index') }}">Dom</a>
-            <a class="nav-link" id="navBarRoomsId" href="{{ url_for('room_view.room_list') }}">Pokoje</a>
+            <a class="nav-link active" id="navBarRoomsId" href="{{ url_for('room_view.room_list') }}">Pokoje</a>
             <a class="nav-link" id="navBarRankId" href="{{ url_for('score_view.score_list') }}">Ranking</a>
+            {% if is_logged %}
+                <a class="nav-link" id="userId" href=""><i class="fa fa-user"></i> {{ username }} </a>
+                <a class="nav-link" href="{{ url_for('user_view.logout') }}"><i class="fa fa-power-off"></i> Wyloguj</a>
+            {% endif %}
         </form>
     </div>
 </nav>

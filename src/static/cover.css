@@ -162,9 +162,9 @@ body {
 /*}*/
 
 .has-error p {
-    color: #bbebff;
+    color: lightcoral;
 }
 
 .required input {
-    background-color: lightcoral;
+    background-color: #bbebff;
 }
