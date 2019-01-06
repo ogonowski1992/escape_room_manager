@@ -29,7 +29,7 @@ def login():
         if form.validate_on_submit():
             user = user_dao.login(form.username.data, form.password.data)
             if user is None:
-                form.username.errors.append("Nieporawna nazwa użytkownika i/lub hasło")
+                form.username.errors.append("Niepoprawna nazwa użytkownika i/lub hasło")
                 return render_template('login.html', form=form)
             login_user(user, remember=False)
             return redirect(url_for('user_view.index'))
@@ -39,9 +39,8 @@ def login():
 @user_view.route('/', methods=['GET', 'POST'])
 @user_view.route('/index', methods=['GET', 'POST'])
 def index():
-    user = current_user.username if current_user.is_authenticated else None
-    return render_template('index.html', is_logged=current_user.is_authenticated, username=user)
-
+    user = current_user if current_user.is_authenticated else None
+    return render_template('index.html', is_logged=current_user.is_authenticated, user=user)
 
 @user_view.route('/logout')
 def logout():

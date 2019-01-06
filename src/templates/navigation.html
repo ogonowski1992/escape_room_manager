@@ -12,14 +12,48 @@
             <a class="nav-link active" id="navBarRoomsId" href="{{ url_for('room_view.room_list') }}">Pokoje</a>
             <a class="nav-link" id="navBarRankId" href="{{ url_for('score_view.score_list') }}">Ranking</a>
             {% if is_logged %}
-                <a class="nav-link" id="userId" href=""><i class="fa fa-user"></i> {{ username }} </a>
+                <a class="nav-link" href="" id="userId" data-toggle="modal" data-target="#exampleModalCenter"><i
+                        class="fa fa-user"></i> {{ user.username }} </a>
                 <a class="nav-link" href="{{ url_for('user_view.logout') }}"><i class="fa fa-power-off"></i> Wyloguj</a>
             {% endif %}
             {% if is_logged == false %}
-                <a class="nav-link" href="{{ url_for('user_view.login') }}"><i class="fa fa-sign-in-alt"></i> Zaloguj</a>
+                <a class="nav-link" href="{{ url_for('user_view.login') }}"><i class="fa fa-sign-in-alt"></i>
+                    Zaloguj</a>
             {% endif %}
         </form>
     </div>
 </nav>
 
 <div style="height: 80px"></div>
+{% if is_logged %}
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+         aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content" style="background-color: #333;">
+                <div class="modal-header">
+                    <h5 id="exampleModalCenterTitle">Dane użytkownika</h5>
+                    <button type="button" style="color:white;" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-6 text-right">Nazwa użytkownika</div>
+                        <div class="col-6 text-left">{{ user.username }}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 text-right">Imię</div>
+                        <div class="col-6 text-left">{{ user.name }}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 text-right">Nazwisko</div>
+                        <div class="col-6 text-left">{{ user.surname }}</div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Zamknij</button>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endif %}
