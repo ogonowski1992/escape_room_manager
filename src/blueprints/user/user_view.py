@@ -39,7 +39,8 @@ def login():
 @user_view.route('/', methods=['GET', 'POST'])
 @user_view.route('/index', methods=['GET', 'POST'])
 def index():
-    return render_template('index.html', is_logged=current_user.is_authenticated)
+    user = current_user.username if current_user.is_authenticated else None
+    return render_template('index.html', is_logged=current_user.is_authenticated, username=user)
 
 
 @user_view.route('/logout')
@@ -57,7 +58,7 @@ def registration():
                 add_error(form.password, 'Podane hasła różnia się od siebie.')
                 return render_template('registration.html', form=form)
             elif user_dao.check_if_username_exist(form.username.data):
-                add_error(form.username, 'Podana nazwą użytkownika jest już używana')
+                add_error(form.username, 'Podana nazwa użytkownika jest już używana')
                 return render_template('registration.html', form=form)
             else:
                 user = user_dao.registration(form.username.data, form.password.data, form.name.data,

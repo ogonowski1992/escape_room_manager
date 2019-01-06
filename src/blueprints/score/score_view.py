@@ -31,7 +31,7 @@ def add_score():
                 add_error(form.date, 'Zły format daty.')
             elif 'escape_time' in form.errors:
                 add_error(form.escape_time, 'Zły format czasu ucieczki.')
-    return render_template('add_score.html', is_logged=current_user.is_authenticated, form=form)
+    return render_template('add_score.html', is_logged=current_user.is_authenticated, username=current_user.username, form=form)
 
 
 @score_view.route('/score_list', methods=['GET', 'POST'])
@@ -43,5 +43,5 @@ def score_list():
     ranking = VisitedRooms.query.join(Room).join(User).add_columns(Room.room_name, VisitedRooms.escape_time, User.name,
                                                                    User.surname).order_by(Room.room_name.asc(),
                                                                                           VisitedRooms.escape_time.asc()).all()
-
-    return render_template('score_list.html', is_logged=current_user.is_authenticated, ranking=ranking)
+    user = current_user.username if current_user.is_authenticated else None
+    return render_template('score_list.html', is_logged=current_user.is_authenticated, username=user, ranking=ranking)
