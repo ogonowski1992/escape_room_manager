@@ -1,26 +1,30 @@
 {% include 'header.html' %}
 {% include 'navigation.html' %}
-<div class="container">
-    <table class="table">
-        <thead class="thead-dark">
-        <tr>
-            <th scope="col">Nazwa</th>
-            <th scope="col">Miasto</th>
-            <th scope="col">Ulica</th>
-            <th scope="col">Numer</th>
-        </tr>
-        </thead>
-        <tbody>
-        {% for room in rooms %}
-        <tr>
-            <th scope="row">{{room.room_name}}</th>
-            <td>{{room.city}}</td>
-            <td>{{room.street}}</td>
-            <td>{{room.number}}</td>
-        </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+<div class="height: calc(100% - 200px)">
+    <div class="container">
+        <div class="height:100%">
+            <table class="table">
+                <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Nazwa</th>
+                    <th scope="col">Miasto</th>
+                    <th scope="col">Ulica</th>
+                    <th scope="col">Numer</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for room in rooms %}
+                    <tr>
+                        <th scope="row">{{ room.room_name }}</th>
+                        <td>{{ room.city }}</td>
+                        <td>{{ room.street }}</td>
+                        <td>{{ room.number }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
 {% include 'footer.html' %}
 

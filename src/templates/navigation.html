@@ -1,15 +1,20 @@
-<div class="masthead clearfix">
-    <div class="inner">
-        <h3 class="masthead-brand">Escape room ranking</h3>
-        <nav class="nav nav-masthead" >
+<nav class="navbar  fixed-top navbar-expand navbar-dark bg-dark">
+    <a class="navbar-brand">Ranking Escape Room</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample02"
+            aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarsExample02">
+        <ul class="navbar-nav mr-auto">
+        </ul>
+        <form class="form-inline my-2 my-md-0 nav-masthead">
+
             <a class="nav-link active" id="navBarHomeId" href="{{ url_for('user_view.index') }}">Dom</a>
             <a class="nav-link" id="navBarRoomsId" href="{{ url_for('room_view.room_list') }}">Pokoje</a>
             <a class="nav-link" id="navBarRankId" href="{{ url_for('score_view.score_list') }}">Ranking</a>
-            {% if is_logged %}
-                <a class="nav-link" id="userId" href=""> {{username}} </a>
-                <a class="nav-link" href="{{ url_for('user_view.logout') }}">Wyloguj</a>
-            {% endif %}
-        </nav>
+        </form>
     </div>
-</div>
-<div style="height: 120px"></div>
+</nav>
+
+<div style="height: 80px"></div>
