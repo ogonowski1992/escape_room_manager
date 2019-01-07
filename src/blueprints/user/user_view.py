@@ -63,7 +63,7 @@ def registration():
                 user = user_dao.registration(form.username.data, form.password.data, form.name.data,
                                              form.surname.data)
                 login_user(user, remember=False)
-                return render_template('index.html', is_logged=current_user.is_authenticated)
+                return render_template('index.html', is_logged=current_user.is_authenticated, user=user)
     else:
         return render_template('registration.html', form=form)
 
